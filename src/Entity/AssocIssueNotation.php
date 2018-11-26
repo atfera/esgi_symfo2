@@ -26,6 +26,18 @@ class AssocIssueNotation
      */
     private $date_notation;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="assocIssueNotations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $userId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Issues", inversedBy="assocIssueNotations")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $issueId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +63,30 @@ class AssocIssueNotation
     public function setDateNotation(?\DateTimeInterface $date_notation): self
     {
         $this->date_notation = $date_notation;
+
+        return $this;
+    }
+
+    public function getUserId(): ?Users
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?Users $userId): self
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getIssueId(): ?Issues
+    {
+        return $this->issueId;
+    }
+
+    public function setIssueId(?Issues $issueId): self
+    {
+        $this->issueId = $issueId;
 
         return $this;
     }

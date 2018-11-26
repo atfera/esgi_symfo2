@@ -26,6 +26,18 @@ class AssocIssueCommentaire
      */
     private $date_commentaire;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="assocIssueCommentaires")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $userId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Issues", inversedBy="assocIssueCommentaires")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $issueId;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +63,30 @@ class AssocIssueCommentaire
     public function setDateCommentaire(?\DateTimeInterface $date_commentaire): self
     {
         $this->date_commentaire = $date_commentaire;
+
+        return $this;
+    }
+
+    public function getUserId(): ?Users
+    {
+        return $this->userId;
+    }
+
+    public function setUserId(?Users $userId): self
+    {
+        $this->userId = $userId;
+
+        return $this;
+    }
+
+    public function getIssueId(): ?Issues
+    {
+        return $this->issueId;
+    }
+
+    public function setIssueId(?Issues $issueId): self
+    {
+        $this->issueId = $issueId;
 
         return $this;
     }
