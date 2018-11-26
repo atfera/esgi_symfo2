@@ -50,3 +50,4 @@ ehthumbs_vista.db
 ### VisualStudioCode Patch ###
 # Ignore all local history of files
 .history
+/.idea/
