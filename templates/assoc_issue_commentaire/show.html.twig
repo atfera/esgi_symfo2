@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AssocIssueCommentaire{% endblock %}
+
+{% block body %}
+    <h1>AssocIssueCommentaire</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ assoc_issue_commentaire.id }}</td>
+            </tr>
+            <tr>
+                <th>Commentaire</th>
+                <td>{{ assoc_issue_commentaire.commentaire }}</td>
+            </tr>
+            <tr>
+                <th>Date_commentaire</th>
+                <td>{{ assoc_issue_commentaire.dateCommentaire ? assoc_issue_commentaire.dateCommentaire|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('assoc_issue_commentaire_index') }}">back to list</a>
+
+    <a href="{{ path('assoc_issue_commentaire_edit', {'id': assoc_issue_commentaire.id}) }}">edit</a>
+
+    {{ include('assoc_issue_commentaire/_delete_form.html.twig') }}
+{% endblock %}

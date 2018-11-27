@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AssocIssueNotation{% endblock %}
+
+{% block body %}
+    <h1>AssocIssueNotation</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ assoc_issue_notation.id }}</td>
+            </tr>
+            <tr>
+                <th>Note</th>
+                <td>{{ assoc_issue_notation.note }}</td>
+            </tr>
+            <tr>
+                <th>Date_notation</th>
+                <td>{{ assoc_issue_notation.dateNotation ? assoc_issue_notation.dateNotation|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('assoc_issue_notation_index') }}">back to list</a>
+
+    <a href="{{ path('assoc_issue_notation_edit', {'id': assoc_issue_notation.id}) }}">edit</a>
+
+    {{ include('assoc_issue_notation/_delete_form.html.twig') }}
+{% endblock %}

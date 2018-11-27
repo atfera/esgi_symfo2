@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New TypeEtat{% endblock %}
+
+{% block body %}
+    <h1>Create new TypeEtat</h1>
+
+    {{ include('type_etat/_form.html.twig') }}
+
+    <a href="{{ path('type_etat_index') }}">back to list</a>
+{% endblock %}

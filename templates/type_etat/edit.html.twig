@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit TypeEtat{% endblock %}
+
+{% block body %}
+    <h1>Edit TypeEtat</h1>
+
+    {{ include('type_etat/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('type_etat_index') }}">back to list</a>
+
+    {{ include('type_etat/_delete_form.html.twig') }}
+{% endblock %}

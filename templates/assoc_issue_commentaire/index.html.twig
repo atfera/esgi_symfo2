@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AssocIssueCommentaire index{% endblock %}
+
+{% block body %}
+    <h1>AssocIssueCommentaire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Commentaire</th>
+                <th>Date_commentaire</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for assoc_issue_commentaire in assoc_issue_commentaires %}
+            <tr>
+                <td>{{ assoc_issue_commentaire.id }}</td>
+                <td>{{ assoc_issue_commentaire.commentaire }}</td>
+                <td>{{ assoc_issue_commentaire.dateCommentaire ? assoc_issue_commentaire.dateCommentaire|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('assoc_issue_commentaire_show', {'id': assoc_issue_commentaire.id}) }}">show</a>
+                    <a href="{{ path('assoc_issue_commentaire_edit', {'id': assoc_issue_commentaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('assoc_issue_commentaire_new') }}">Create new</a>
+{% endblock %}

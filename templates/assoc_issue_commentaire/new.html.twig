@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AssocIssueCommentaire{% endblock %}
+
+{% block body %}
+    <h1>Create new AssocIssueCommentaire</h1>
+
+    {{ include('assoc_issue_commentaire/_form.html.twig') }}
+
+    <a href="{{ path('assoc_issue_commentaire_index') }}">back to list</a>
+{% endblock %}

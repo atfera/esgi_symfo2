@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AssocIssueNotation{% endblock %}
+
+{% block body %}
+    <h1>Create new AssocIssueNotation</h1>
+
+    {{ include('assoc_issue_notation/_form.html.twig') }}
+
+    <a href="{{ path('assoc_issue_notation_index') }}">back to list</a>
+{% endblock %}

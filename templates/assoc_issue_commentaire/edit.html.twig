@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit AssocIssueCommentaire{% endblock %}
+
+{% block body %}
+    <h1>Edit AssocIssueCommentaire</h1>
+
+    {{ include('assoc_issue_commentaire/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('assoc_issue_commentaire_index') }}">back to list</a>
+
+    {{ include('assoc_issue_commentaire/_delete_form.html.twig') }}
+{% endblock %}

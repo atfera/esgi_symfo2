@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}AssocIssueNotation index{% endblock %}
+
+{% block body %}
+    <h1>AssocIssueNotation index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Note</th>
+                <th>Date_notation</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for assoc_issue_notation in assoc_issue_notations %}
+            <tr>
+                <td>{{ assoc_issue_notation.id }}</td>
+                <td>{{ assoc_issue_notation.note }}</td>
+                <td>{{ assoc_issue_notation.dateNotation ? assoc_issue_notation.dateNotation|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('assoc_issue_notation_show', {'id': assoc_issue_notation.id}) }}">show</a>
+                    <a href="{{ path('assoc_issue_notation_edit', {'id': assoc_issue_notation.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('assoc_issue_notation_new') }}">Create new</a>
+{% endblock %}

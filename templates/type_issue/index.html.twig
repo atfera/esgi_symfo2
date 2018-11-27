@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeIssue index{% endblock %}
+
+{% block body %}
+    <h1>TypeIssue index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom_type_issue</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_issue in type_issues %}
+            <tr>
+                <td>{{ type_issue.id }}</td>
+                <td>{{ type_issue.nomTypeIssue }}</td>
+                <td>
+                    <a href="{{ path('type_issue_show', {'id': type_issue.id}) }}">show</a>
+                    <a href="{{ path('type_issue_edit', {'id': type_issue.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_issue_new') }}">Create new</a>
+{% endblock %}
