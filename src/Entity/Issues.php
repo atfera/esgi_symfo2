@@ -35,16 +35,6 @@ class Issues
     private $userId;
 
     /**
-     * @ORM\Column(type="string", columnDefinition="enum('issue', 'feature')")
-     */
-    private $type;
-
-    /**
-     * @ORM\Column(type="string", columnDefinition="enum('dev', 'rejected', 'accepted', 'done', 'studying')", nullable=true)
-     */
-    private $state;
-
-    /**
      * @ORM\OneToMany(targetEntity="App\Entity\AssocIssueNotation", mappedBy="issueId")
      */
     private $assocIssueNotations;
@@ -53,6 +43,16 @@ class Issues
      * @ORM\OneToMany(targetEntity="App\Entity\AssocIssueCommentaire", mappedBy="issueId")
      */
     private $assocIssueCommentaires;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TypeEtat", inversedBy="issueEtat")
+     */
+    private $stateId;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\TypeIssue", inversedBy="typeIssue")
+     */
+    private $issueTypeId;
 
     public function __construct()
     {
@@ -183,6 +183,30 @@ class Issues
                 $assocIssueCommentaire->setIssueId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getStateId(): ?int
+    {
+        return $this->stateId;
+    }
+
+    public function setStateId(int $stateId): self
+    {
+        $this->stateId = $stateId;
+
+        return $this;
+    }
+
+    public function getIssueTypeId(): ?TypeIssue
+    {
+        return $this->issueTypeId;
+    }
+
+    public function setIssueTypeId(?TypeIssue $issueTypeId): self
+    {
+        $this->issueTypeId = $issueTypeId;
 
         return $this;
     }
