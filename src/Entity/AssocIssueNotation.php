@@ -27,7 +27,7 @@ class AssocIssueNotation
     private $date_notation;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="assocIssueNotations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\UsersAccount", inversedBy="assocIssueNotations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $userId;
@@ -67,12 +67,12 @@ class AssocIssueNotation
         return $this;
     }
 
-    public function getUserId(): ?Users
+    public function getUserId(): ?UsersAccount
     {
         return $this->userId;
     }
 
-    public function setUserId(?Users $userId): self
+    public function setUserId(?UsersAccount $userId): self
     {
         $this->userId = $userId;
 

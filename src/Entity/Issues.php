@@ -29,7 +29,7 @@ class Issues
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Users", inversedBy="issues")
+     * @ORM\ManyToOne(targetEntity="App\Entity\UsersAccount", inversedBy="issues")
      * @ORM\JoinColumn(nullable=false)
      */
     private $userId;
@@ -89,12 +89,12 @@ class Issues
         return $this;
     }
 
-    public function getUserId(): ?Users
+    public function getUserId(): ?UsersAccount
     {
         return $this->userId;
     }
 
-    public function setUserId(?Users $userId): self
+    public function setUserId(?UsersAccount $userId): self
     {
         $this->userId = $userId;
 
