@@ -29,7 +29,7 @@ class Issues
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\UsersAccount", inversedBy="issues")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="issues")
      * @ORM\JoinColumn(nullable=false)
      */
     private $userId;

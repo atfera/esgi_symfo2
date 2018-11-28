@@ -27,7 +27,7 @@ class AssocIssueCommentaire
     private $date_commentaire;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\UsersAccount", inversedBy="assocIssueCommentaires")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="assocIssueCommentaires")
      * @ORM\JoinColumn(nullable=false)
      */
     private $userId;

@@ -27,7 +27,7 @@ class AssocIssueNotation
     private $date_notation;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\UsersAccount", inversedBy="assocIssueNotations")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="assocIssueNotations")
      * @ORM\JoinColumn(nullable=false)
      */
     private $userId;
