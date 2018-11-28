@@ -12,11 +12,12 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/issues")
+ * @Route(name="app_issues_")
  */
 class IssuesController extends AbstractController
 {
     /**
-     * @Route("/", name="issues_index", methods="GET")
+     * @Route("/", name="index", methods="GET")
      */
     public function index(IssuesRepository $issuesRepository): Response
     {
